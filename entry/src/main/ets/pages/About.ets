@@ -3,6 +3,7 @@
 struct About {
   @State message: string = 'Hello World';
   @State arr: string[] = ['a', 'b', 'c']
+  @State arr1: string[] = ['d', 'e', 'f']
 
   build() {
     RelativeContainer() {
@@ -17,9 +18,15 @@ struct About {
       List() {
         ForEach(this.arr, (item: string, i: number) => {
           ListItem() {
-            Row() {
-              Button(item)
-            }
+            Button(item)
+          }.width('100%')
+        })
+      }.alignListItem(ListItemAlign.Center).width('100%').height('auto')
+
+      Grid() {
+        ForEach(this.arr1, (item: string, i: number) => {
+          GridItem() {
+            Button(item)
           }
         })
       }
